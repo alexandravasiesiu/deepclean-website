@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.691d558f.js",
+    "main.js": "/static/js/main.c79a989f.js",
     "static/media/DeepClean-Logo.png": "/static/media/DeepClean-Logo.7a28c9e2e08b4f451d77.png",
     "static/media/DeepClean-LogoWhite.png": "/static/media/DeepClean-LogoWhite.7fe8c4fcece8a4fabf80.png",
     "index.html": "/index.html",
-    "main.691d558f.js.map": "/static/js/main.691d558f.js.map"
+    "main.c79a989f.js.map": "/static/js/main.c79a989f.js.map"
   },
   "entrypoints": [
-    "static/js/main.691d558f.js"
+    "static/js/main.c79a989f.js"
   ]
 }
