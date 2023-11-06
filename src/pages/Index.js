@@ -552,26 +552,28 @@ export default function Index() {
                     Alte Întrebări? Contactează-ne!
                   </h3>
                   <p className='mb-6 text-gray-500'>Află toate detaliile</p>
-                  <form action=''>
+                  <form action="https://formsubmit.co/office.deep.clean.services@gmail.com" method="POST">
                     <input
                       className='block w-full bg-blue-50 py-4 pl-6 mb-2 placeholder-blue-400 text-sm text-blue-400'
                       type='email'
+                      name='E-mail'
                       placeholder='E-mail'
                     />
                     <input
                       className='block w-full bg-blue-50 py-4 pl-6 mb-2 placeholder-blue-400 text-sm text-blue-400'
                       type='text'
+                      name='Nume'
                       placeholder='Nume'
                     />
                     <textarea
                       className='block w-full bg-blue-50 py-4 px-6 mb-2 resize-none placeholder-blue-400 tetx-sm text-blue-400'
-                      name=''
+                      name='Mesaj'
                       id=''
                       rows={4}
                       placeholder='Mesajul Tău...'
                       defaultValue={''}
                     />
-                    <button className='block w-full py-5 bg-yellow-500 hover:bg-yellow-400 text-sm uppercase font-bold transition duration-200'>
+                    <button className='block w-full py-5 bg-yellow-500 hover:bg-yellow-400 text-sm uppercase font-bold transition duration-200' type='submit'>
                       Trimite
                     </button>
                   </form>
