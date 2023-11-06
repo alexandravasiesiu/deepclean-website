@@ -3,11 +3,11 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function CookieBanner() {
-  const [ showBanner, setShowBanner ] = useState(true);
-    const navigate = useNavigate();
+  const [showBanner, setShowBanner] = useState(true);
+  const navigate = useNavigate();
 
   const acceptCookies = () => {
-    localStorage = setItem("cookie_consent", true);
+    localStorage.setItem("cookie_consent", true);
     setShowBanner(false);
   };
 
@@ -28,7 +28,7 @@ function CookieBanner() {
             </p>
             <Link
               className="flex items-center font-medium text-coolGray-500 hover:text-yellow-500 mb-4"
-              to="#"
+              to="/privacypolicy"
             >
               <span className="mr-2">
                 Citiți politica noastră de confidențialitate

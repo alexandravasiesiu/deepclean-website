@@ -626,12 +626,20 @@ export default function Index() {
                         Servicii
                       </Link>
                     </li>
-                    <li className='mb-2 md:mb-0'>
+                    <li className='mr-10 mb-2 md:mb-0'>
                       <Link
                         className='text-sm text-white hover:text-blue-100'
                         to='#Contact'
                       >
                         Contact
+                      </Link>
+                    </li>
+                    <li className='mb-2 md:mb-0'>
+                      <Link
+                        className='text-sm text-white hover:text-blue-100'
+                        to='/Politica_de_confidențialitate'
+                      >
+                        Politica de confidențialitate
                       </Link>
                     </li>
                   </ul>
