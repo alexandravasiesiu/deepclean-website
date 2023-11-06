@@ -1,15 +1,17 @@
 import React from 'react';
-import { createRoot } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
+import ScrollToHashElement from './components/ScrollToHashElement';
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
+        <HashRouter basename='/'>
+        <ScrollToHashElement />
             <App />
-        </BrowserRouter>
+        </HashRouter>
     </React.StrictMode>
 );

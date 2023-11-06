@@ -1,5 +1,10 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import  logo  from '../assets/images/DeepClean-Logo.png';
+import  whitelogo  from '../assets/images/DeepClean-LogoWhite.png';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import CookieBanner from '../components/CookieBanner';
 
 const meta = {
   title: '',
@@ -10,6 +15,10 @@ const meta = {
 };
 
 export default function Index() {
+  const navigate = useNavigate();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <React.Fragment>
       <HelmetProvider>
@@ -25,15 +34,15 @@ export default function Index() {
         >
           <nav className='relative py-8 px-4 xl:px-10'>
             <div className='flex justify-between items-center'>
-              <a className='text-xl text-white font-semibold' href='#'>
+              <Link className='text-xl text-white font-semibold' to='/'>
                 <img
-                  src='images/DeepClean-Logo.png'
+                  src={logo}
                   alt=''
                   className='rounded h-16'
                 />
-              </a>
+              </Link>
               <div className='lg:hidden'>
-                <button className='navbar-burger flex items-center p-3 rounded bg-green-700'>
+                <button className='navbar-burger flex items-center p-3 rounded bg-green-700' onClick={() => setMenuOpen(true)}>
                   <svg
                     className='text-white block h-4 w-4'
                     viewBox='0 0 20 20'
@@ -47,24 +56,24 @@ export default function Index() {
               </div>
               <ul className='hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:w-auto lg:space-x-10'>
                 <li>
-                  <a className='text-black text-lg font-semibold' href='#'>
+                  <Link className='text-black text-lg font-semibold' to='#Despre_noi'>
                     Despre noi
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className='text-black text-lg font-semibold' href='#'>
+                  <Link className='text-black text-lg font-semibold' to='#De_ce_noi'>
                     De ce noi?
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className='text-black text-lg font-semibold' href='#'>
+                  <Link className='text-black text-lg font-semibold' to='#Servicii'>
                     Servicii
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className='text-black text-lg font-semibold' href='#'>
+                  <Link className='text-black text-lg font-semibold' to='#Contact'>
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -83,12 +92,12 @@ export default function Index() {
                       <h2 className='mb-8 text-4xl lg:text-6xl font-bold text-green-700'>
                         Transformăm Spațiile în Locuri Impecabile!
                       </h2>
-                      <a
+                      <Link
                         className='inline-block w-full md:w-auto mb-2 md:mb-0 py-5 px-8 mr-6 text-center text-sm font-bold uppercase bg-yellow-500 hover:bg-yellow-400 transition duration-200'
-                        href='#'
+                        to='#Contact'
                       >
                         Contact
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -102,126 +111,90 @@ export default function Index() {
               </div>
             </div>
           </div>
-          <div className='navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50 hidden'>
+          <div className={`${menuOpen ? "" : "hidden"} navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50`}>
             <div className='navbar-backdrop fixed inset-0 bg-blue-800 opacity-90' />
             <nav className='relative flex flex-col py-8 w-full h-full bg-white border-r overflow-y-auto'>
               <div className='flex items-center mb-16 pr-6'>
-                <a
+                <Link
                   className='ml-16 mr-auto text-xl text-blue-800 font-semibold leading-none'
-                  href='#'
+                  to='#'
                 >
                   <img
                     className='h-16'
-                    src='images/DeepCleanLogo.png'
+                    src={logo}
                     alt=''
                     width='auto'
                   />
-                </a>
+                </Link>
+                <button className='navbar-close'
+                 onClick={() => setMenuOpen(false)}
+                >
+                  <svg
+                    className='h-6 w-6 text-gray-500 cursor-pointer hover:text-gray-500'
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M6 18L18 6M6 6l12 12'
+                    />
+                  </svg>
+                </button>
               </div>
               <div>
                 <ul>
                   <li className='mb-1'>
-                    <a
+                    <Link
                       className='block pl-16 py-5 font-semibold rounded text-black hover:text-pink-500'
-                      href='#'
+                      to='#Despre_noi'
                     >
                       Despre noi
-                    </a>
+                    </Link>
                   </li>
                   <li className='mb-1'>
-                    <a
+                    <Link
                       className='block pl-16 py-5 font-semibold rounded text-black hover:text-pink-500'
-                      href='#'
+                      to='#De_ce_noi'
                     >
                       De ce noi?
-                    </a>
+                    </Link>
                   </li>
                   <li className='mb-1'>
-                    <a
+                    <Link
                       className='block pl-16 py-5 font-semibold rounded text-black hover:text-pink-500'
-                      href='#'
+                      to='#Servicii'
                     >
                       Servicii
-                    </a>
+                    </Link>
                   </li>
                   <li className='mb-1'>
-                    <a
+                    <Link
                       className='block pl-16 py-5 font-semibold rounded text-black hover:text-pink-500'
-                      href='#'
+                      to='#Contact'
                     >
                       Contact
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
               <div className='mt-auto px-10'>
-                <div className='pt-6'>
-                  <a
-                    className='block mb-2 py-4 text-center text-blue-800 font-semibold'
-                    href='#'
-                  >
-                    Sign in
-                  </a>
-                  <a
-                    className='block py-4 text-center text-blue-800 leading-normal uppercase border-2 border-blue-800 hover:bg-blue-50 font-semibold'
-                    href='#'
-                  >
-                    Sign Up
-                  </a>
-                </div>
                 <p className='mt-6 mb-4 text-sm text-center text-blue-400'>
                   <span>
-                    © 2021 All rights reserved © Wireframes Corporation 2021
+                    © 2023 Toate drepturile rezervate © Deep Clean Services 2023
                   </span>
                 </p>
               </div>
             </nav>
           </div>
         </section>
-        <div className='fixed bottom-0 inset-x-0 z-50'>
-          <div className='p-8 bg-green-700'>
-            <div className='container px-4 mx-auto'>
-              <p className='text-sm leading-loose text-white'>
-                Site-ul nostru utilizează cookie-uri pentru a asigura
-                funcționarea optimă a platformei și pentru a analiza modul în
-                care interacționați cu conținutul nostru.
-              </p>
-              <a
-                className='flex items-center font-medium text-coolGray-500 hover:text-yellow-500 mb-4'
-                href='#'
-              >
-                <span className='mr-2'>
-                  Citiți politica noastră de confidențialitate
-                </span>
-                <svg
-                  width={24}
-                  height={24}
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M15.71 12.71C15.801 12.6149 15.8724 12.5028 15.92 12.38C16.02 12.1365 16.02 11.8635 15.92 11.62C15.8724 11.4972 15.801 11.3851 15.71 11.29L12.71 8.29C12.5217 8.1017 12.2663 7.99591 12 7.99591C11.7337 7.99591 11.4783 8.1017 11.29 8.29C11.1017 8.4783 10.9959 8.7337 10.9959 9C10.9959 9.2663 11.1017 9.5217 11.29 9.71L12.59 11L9 11C8.73479 11 8.48043 11.1054 8.2929 11.2929C8.10536 11.4804 8 11.7348 8 12C8 12.2652 8.10536 12.5196 8.2929 12.7071C8.48043 12.8946 8.73479 13 9 13L12.59 13L11.29 14.29C11.1963 14.383 11.1219 14.4936 11.0711 14.6154C11.0203 14.7373 10.9942 14.868 10.9942 15C10.9942 15.132 11.0203 15.2627 11.0711 15.3846C11.1219 15.5064 11.1963 15.617 11.29 15.71C11.383 15.8037 11.4936 15.8781 11.6154 15.9289C11.7373 15.9797 11.868 16.0058 12 16.0058C12.132 16.0058 12.2627 15.9797 12.3846 15.9289C12.5064 15.8781 12.617 15.8037 12.71 15.71L15.71 12.71ZM22 12C22 10.0222 21.4135 8.08879 20.3147 6.4443C19.2159 4.79981 17.6541 3.51808 15.8268 2.7612C13.9996 2.00433 11.9889 1.80629 10.0491 2.19215C8.10929 2.578 6.32746 3.53041 4.92894 4.92893C3.53041 6.32746 2.578 8.10929 2.19215 10.0491C1.8063 11.9889 2.00433 13.9996 2.76121 15.8268C3.51809 17.6541 4.79981 19.2159 6.4443 20.3147C8.08879 21.4135 10.0222 22 12 22C14.6522 22 17.1957 20.9464 19.0711 19.0711C19.9997 18.1425 20.7363 17.0401 21.2388 15.8268C21.7413 14.6136 22 13.3132 22 12ZM4 12C4 10.4177 4.4692 8.87103 5.34825 7.55544C6.2273 6.23985 7.47673 5.21446 8.93854 4.60896C10.4003 4.00346 12.0089 3.84504 13.5607 4.15372C15.1126 4.4624 16.538 5.22433 17.6569 6.34315C18.7757 7.46197 19.5376 8.88743 19.8463 10.4393C20.155 11.9911 19.9965 13.5997 19.391 15.0615C18.7855 16.5233 17.7602 17.7727 16.4446 18.6518C15.129 19.5308 13.5823 20 12 20C9.87827 20 7.84344 19.1571 6.34315 17.6569C4.84286 16.1566 4 14.1217 4 12Z'
-                    fill='currentColor'
-                  />
-                </svg>
-              </a>
-              <a
-                className='inline-block mr-2 text-sm leading-normal bg-yellow-500 hover:bg-yellow-400 uppercase font-bold border-2 border-transparent py-2 px-4'
-                href='#'
-              >
-                Accept
-              </a>
-              <a
-                className='inline-block text-sm leading-normal bg-transparent text-gray-50 hover:text-blue-100 uppercase font-bold border-2 border-white py-2 px-4'
-                href='#'
-              >
-                Refuz
-              </a>
-            </div>
-          </div>
-        </div>
-        <section className='py-20'>
+
+        {localStorage.getItem("cookie_consent") ? null : <CookieBanner />}
+        
+        <section id="Despre_noi" className='py-20'>
           <div className='container px-4 mx-auto mb-12 lg:mb-24'>
             <div className='flex flex-wrap -mx-4 items-center'>
               <div className='w-full px-4 mb-12 lg:mb-0'>
@@ -234,7 +207,7 @@ export default function Index() {
           <div className='container px-4 mx-auto'>
             <div className='max-w-2xl mx-auto'>
               <p className='mb-6 text-lg font-medium text-green-700'>
-                La Deep Clean, nu oferim doar servicii de curățenie, ci aducem
+                La Deep Clean Services, nu oferim doar servicii de curățenie, ci aducem
                 în fiecare loc în care intervenim un nivel superior de igienă și
                 prospețime. Cu o echipă dedicată de specialiști în curățenie și
                 o pasiune inepuizabilă pentru detaliu, suntem mai mult decât
@@ -243,7 +216,6 @@ export default function Index() {
               </p>
               <p
                 className='mb-6 text-lg font-medium text-green-700'
-                contentEditable='false'
               >
                 {' '}
                 Echipa noastră este formată din experți cu o vastă experiență,
@@ -269,16 +241,16 @@ export default function Index() {
               <p className='mb-6 text-lg font-medium text-green-700'>
                 Indiferent dacă este vorba despre biroul dvs. plin de vitalitate
                 sau locuința dvs. caldă și primitoare, suntem aici pentru a vă
-                oferi servicii de curățenie de neegalat. Alegeți Deep Clean și
+                oferi servicii de curățenie de neegalat. Alegeți Deep Clean Services și
                 lăsați-ne să vă ajutăm să transformați fiecare spațiu într-un
                 sanctuar de prospețime și claritate, în care fiecare detaliu
-                este îngrijit cu grijă și precizie. Cu Deep Clean, confortul și
+                este îngrijit cu grijă și precizie. Cu Deep Clean Services, confortul și
                 igiena sunt la doar un apel distanță.
               </p>
             </div>
           </div>
         </section>
-        <section className='relative overflow-x-hidden pb-24 lg:py-24'>
+        <section id="De_ce_noi" className='relative overflow-x-hidden pb-24 lg:py-24'>
           <img
             className='lg:absolute lg:top-0 lg:left-0 h-full w-full lg:w-5/12 mb-12 lg:mb-0 object-cover lg:clip-path-right-top'
             src='images/detergents-and-cleaning-accessories-in-pastel-colo-2022-03-10-02-00-41-utc-jpg-1696424961537.webp'
@@ -306,11 +278,11 @@ export default function Index() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className='mb-2 text-lg font-semibold font-heading text-yellow-500 text-pink-500'>
+                    <h3 className='mb-2 text-lg font-semibold font-heading text-pink-500'>
                       Experiență și Profesionalism:
                     </h3>
                     <p className='text-base text-gray-500 leading-loose'>
-                      Deep Clean se remarcă prin experiența sa vastă în
+                      Deep Clean Services se remarcă prin experiența sa vastă în
                       industria curățeniei și profesionalismul echipei sale bine
                       instruite. Firma oferă soluții personalizate și înțelege
                       nevoile specifice ale fiecărui client, asigurând un mediu
@@ -338,7 +310,7 @@ export default function Index() {
                       Calitatea Serviciilor și Produselor Ecologice:{' '}
                     </h3>
                     <p className='text-base text-gray-500 leading-loose'>
-                      Deep Clean utilizează produse ecologice și echipamente de
+                      Deep Clean Services utilizează produse ecologice și echipamente de
                       curățenie de ultimă generație. Cu angajamentul de a oferi
                       rezultate impecabile, firma garantează un mediu curat și
                       sigur, utilizând produse prietenoase cu mediul
@@ -366,9 +338,9 @@ export default function Index() {
                       Confort și Economie de Timp:{' '}
                     </h3>
                     <p className='text-base text-gray-500 leading-loose'>
-                      Deep Clean oferă clienților comoditatea de a economisi
+                      Deep Clean Services oferă clienților comoditatea de a economisi
                       timp și efort, eliminând necesitatea curățării propriilor
-                      spații. Alegând serviciile Deep Clean, clienții pot să se
+                      spații. Alegând serviciile Deep Clean Services, clienții pot să se
                       concentreze pe activitățile lor importante, beneficiind
                       totodată de un mediu curat și ordonat în locuință sau
                       birou.
@@ -379,10 +351,10 @@ export default function Index() {
             </div>
           </div>
         </section>
-        <section className='relative py-24'>
+        <section id="Servicii" className='relative py-24'>
           <div className='container px-4 mx-auto'>
             <h2 className='mb-8 font-bold font-heading text-center text-black text-5xl p-2'>
-              De ce ai nevoie de noi?
+              Ce servicii găsești la noi?
             </h2>
             <div className='flex flex-wrap -m-4'>
               <div className='w-full lg:w-1/2 p-4'>
@@ -394,7 +366,7 @@ export default function Index() {
                     Servicii de Curățenie pentru Birouri
                   </h3>
                   <p className='text-base text-white leading-relaxed'>
-                    Deep Clean oferă servicii de curățenie pentru birouri care
+                    Deep Clean Services oferă servicii de curățenie pentru birouri care
                     asigură un mediu de lucru impecabil și profesional. Echipa
                     noastră se ocupă de curățarea și dezinfectarea birourilor,
                     spațiilor comune și a echipamentelor, contribuind la
@@ -428,7 +400,7 @@ export default function Index() {
                     Servicii de Curățenie pentru Apartamente
                   </h3>
                   <p className='text-base text-white leading-relaxed'>
-                    Pentru locatarii de apartamente, Deep Clean oferă servicii
+                    Pentru locatarii de apartamente, Deep Clean Services oferă servicii
                     de curățenie eficiente și fiabile. Ne ocupăm de toate
                     spațiile, inclusiv de cele mici și compacte, pentru a vă
                     asigura că apartamentul dumneavoastră este întotdeauna curat
@@ -463,7 +435,7 @@ export default function Index() {
                     Servicii de Curățenie pentru Instituții
                   </h3>
                   <p className='text-base text-white leading-relaxed'>
-                    Deep Clean oferă servicii de curățenie pentru instituții
+                    Deep Clean Services oferă servicii de curățenie pentru instituții
                     precum școli, clinici și instituții publice. Echipa noastră
                     se asigură că aceste locuri sunt curate, sigure și igienice,
                     oferind un mediu propice pentru învățare și tratament
@@ -497,7 +469,7 @@ export default function Index() {
                     Servicii de Curățenie pentru Clădiri Interioare
                   </h3>
                   <p className='text-base text-white leading-relaxed'>
-                    Indiferent de dimensiunea clădirii, Deep Clean se ocupă de
+                    Indiferent de dimensiunea clădirii, Deep Clean Services se ocupă de
                     curățenia interioară. Curățăm și întreținem fiecare
                     colțișor, asigurând un mediu proaspăt și plăcut pentru
                     locatari sau angajați.
@@ -542,6 +514,7 @@ export default function Index() {
           </div>
         </section>
         <section
+          id="Contact"
           className='relative py-24 overflow-hidden'
           style={{
             backgroundImage:
@@ -559,18 +532,18 @@ export default function Index() {
                     ADRESĂ
                   </h3>
                   <p className='text-green-700 font-medium'>
-                    1686 Geraldine Lane New York
+                    Alba Iulia, Str. Mărășești, 
                   </p>
                   <p className='mb-6 font-medium text-green-700'>
-                    New York 10013
+                    Nr.95, județ Alba
                   </p>
                   <h3 className='uppercase font-semibold leading-loose tracking-widest text-gray-300'>
                     CONTACT
                   </h3>
                   <p className='text-green-700 font-medium'>
-                    hello@wireframes.org
+                   office.deep.clean.services@gmail.com
                   </p>
-                  <p className='text-green-700 font-medium'>+7 843 672 431</p>
+                  <p className='text-green-700 font-medium'>0745 357 905</p>
                 </div>
               </div>
               <div className='w-full lg:w-1/2 px-4'>
@@ -599,7 +572,7 @@ export default function Index() {
                       defaultValue={''}
                     />
                     <button className='block w-full py-5 bg-yellow-500 hover:bg-yellow-400 text-sm uppercase font-bold transition duration-200'>
-                      TRimite
+                      Trimite
                     </button>
                   </form>
                 </div>
@@ -611,68 +584,60 @@ export default function Index() {
           <div className='container mx-auto px-4'>
             <div className='flex flex-wrap justify-between -mx-2'>
               <div className='w-full lg:w-2/6 px-2'>
-                <a
+                <Link
                   className='inline-block mb-6 text-white text-lg font-semibold'
-                  href='#'
+                  to='#'
                 >
                   <img
                     className='h-16'
-                    src='images/DeepClean-LogoWhite.png'
+                    src={whitelogo}
                     alt=''
                     width='auto'
                   />
-                </a>
+                </Link>
                 <p className='hidden lg:block text-sm text-blue-300'>
-                  Toate drepturile rezervate © Deep Clean 2023
+                  Toate drepturile rezervate © Deep Clean Services 2023
                 </p>
               </div>
               <div className='w-full lg:w-4/6 px-2'>
                 <div className='flex flex-wrap justify-end items-center'>
                   <ul className='w-full lg:w-auto inline-flex flex-wrap mb-4 lg:mb-0 md:mr-6 lg:mr-16'>
                     <li className='mr-10 mb-2 md:mb-0'>
-                      <a
+                      <Link
                         className='text-sm text-white hover:text-blue-100'
-                        href='#'
+                        to='#Despre_noi'
                       >
                         Despre noi
-                      </a>
+                      </Link>
                     </li>
                     <li className='mr-10 mb-2 md:mb-0'>
-                      <a
+                      <Link
                         className='text-sm text-white hover:text-blue-100'
-                        href='#'
+                        to='#De_ce_noi'
                       >
                         De ce noi?
-                      </a>
+                      </Link>
                     </li>
                     <li className='mr-10 mb-2 md:mb-0'>
-                      <a
+                      <Link
                         className='text-sm text-white hover:text-blue-100'
-                        href='#'
+                        to='#Servicii'
                       >
                         Servicii
-                      </a>
-                    </li>
-                    <li className='mr-10 mb-2 md:mb-0'>
-                      <a
-                        className='text-sm text-white hover:text-blue-100'
-                        href='#'
-                      >
-                        Servicii
-                      </a>
+                      </Link>
                     </li>
                     <li className='mb-2 md:mb-0'>
-                      <a
+                      <Link
                         className='text-sm text-white hover:text-blue-100'
-                        href='#'
+                        to='#Contact'
                       >
                         Contact
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
                 <p className='mt-6 lg:hidden text-sm text-blue-300'>
-                  All rights reserved © Wireframes Corporation 2021
+                  Toate drepturile rezervate © Deep Clean Services
                 </p>
               </div>
             </div>
